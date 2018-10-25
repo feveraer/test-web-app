@@ -5,6 +5,8 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.LinkedList;
+import java.util.List;
 
 @Entity
 public class User implements Serializable {
@@ -17,6 +19,10 @@ public class User implements Serializable {
     @Column(name = "user_name")
     @NotNull
     private String userName;
+
+    // using LinkedList since adding or removing 1 element
+    // is O(1) (instead of O(n) with ArrayList)
+    private List<Skill> skills = new LinkedList<>();
 
     public String getId() {
         return id;
@@ -37,7 +43,7 @@ public class User implements Serializable {
     // Hibernate needs default constructor
     protected User() {}
 
-    public User(String userName) {
+    public User(@NotNull String userName) {
         this.userName = userName;
     }
 }
