@@ -41,10 +41,19 @@ public class User implements Serializable {
         this.userName = userName;
     }
 
+    public List<Skill> getSkills() {
+        return skills;
+    }
+
+    public void setSkills(List<Skill> skills) {
+        this.skills = skills;
+    }
+
     // Hibernate needs default constructor
     protected User() {}
 
-    public User(@NotNull String userName) {
+    public User(@NotNull String userName, List<Skill> skills) {
         this.userName = userName;
+        this.skills = skills;
     }
 }
