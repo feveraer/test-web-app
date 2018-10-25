@@ -1,8 +1,6 @@
 package com.feveraer.testwebapp.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
@@ -10,7 +8,7 @@ import java.io.Serializable;
 public class User implements Serializable {
 
     @Id
-    @NotNull
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
 
     @Column(name = "user_name")
@@ -33,6 +31,7 @@ public class User implements Serializable {
         this.userName = userName;
     }
 
-    protected User() {
+    public User(String userName) {
+        this.userName = userName;
     }
 }

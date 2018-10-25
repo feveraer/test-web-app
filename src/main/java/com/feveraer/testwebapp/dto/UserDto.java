@@ -19,4 +19,9 @@ public class UserDto {
     public void setUserName(String userName) {
         this.userName = userName;
     }
+
+    public UserDto(String id, String userName) {
+        this.id = id;
+        this.userName = userName;
+    }
 }
