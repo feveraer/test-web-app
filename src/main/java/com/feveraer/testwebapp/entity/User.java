@@ -22,6 +22,7 @@ public class User implements Serializable {
 
     // using LinkedList since adding or removing 1 element
     // is O(1) (instead of O(n) with ArrayList)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Skill> skills = new LinkedList<>();
 
     public String getId() {
