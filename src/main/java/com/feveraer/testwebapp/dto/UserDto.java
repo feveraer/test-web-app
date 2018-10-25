@@ -20,6 +20,9 @@ public class UserDto {
         this.userName = userName;
     }
 
+    // hibernate needs default constructor
+    protected UserDto() {}
+
     public UserDto(String id, String userName) {
         this.id = id;
         this.userName = userName;
